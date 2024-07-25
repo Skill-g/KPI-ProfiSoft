@@ -1,0 +1,181 @@
+/* style.module.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.authLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formReg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 600px;
+    flex-direction: column;
+    background-color: #1C2C4C;
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 
+        inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 2px rgb(89, 144, 170),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.formRegBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 200px;
+}
+
+.formRegBodyLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.formRegBodyLogin input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a305b;
+    color: white;
+    width: 300px;
+    height: 50px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    text-align: center;
+    transition: 500ms;
+}
+
+.formRegBodyLogin input::placeholder {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formRegBodyLogin input:focus {
+    background-color: #202f4d;
+    border: 1px #202f4d solid;
+    transition: 500ms;
+}
+
+.formRegBody button {
+    border-radius: 8px;
+    width: 300px;
+    height: 50px;
+    background-color: #1a305b;
+    transition: 300ms;
+    color: white;
+}
+
+.formRegBody button:hover {
+    background-color: #1d3565;
+    transition: 300ms;
+}
+
+.formRegTextLogo {
+    font-size: 50px;
+}
+
+.formTextLogo {
+    font-size: 30px;
+}
+
+.container {
+    position: relative;
+}
+
+.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdownInput {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.dropdownList {
+    position: absolute;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #1a305b;
+    overflow: hidden;
+    z-index: 1000;
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dropdownListItem {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdownListItem:hover {
+    background-color: #183368;
+}
+
+.monthYearPicker {
+    position: relative;
+    width: 100%;
+}
+
+.monthYearPickerDropdown {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #1a305b;
+    z-index: 1000;
+}
+
+.months, .years {
+    width: 50%;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.months {
+    border-right: 1px solid #1d3565;
+}
+
+.dropdownListItem {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdownListItem:hover,
+.dropdownListItem.activeItem {
+    background-color: #183368;
+}
+
+
+.dropdownListItem:hover {
+    background-color: #183368;
+}
+
+
+::-webkit-scrollbar { /* chrome based */
+    width: 0px;  /* ширина scrollbar'a */
+    background: transparent;  /* опционально */
+}

@@ -1,0 +1,17 @@
+{
+  "name": "kpi-all",
+  "version": "1.0.0",
+  "description": "KPI-All",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd Server && nodemon index.js",
+    "client": "cd Client && npm run dev",
+    "all": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "test"
+  },
+  "author": "Skill",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/file-saver": "^2.0.7"
+  }
+}
