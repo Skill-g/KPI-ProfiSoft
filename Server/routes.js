@@ -134,7 +134,7 @@ export default function setupRoutes(app) {
 
   app.get('/api/getTableUsers', async (req, res) => {
     const { month, user_id } = req.query;
-    const apiKey = "H2894SqJir*G%21f"
+    const apiKey = "H2894SqJir*G%21f";
     if (!month || !user_id) {
       return res.status(400).json({ error: 'Missing required parameters' });
     }
@@ -145,11 +145,10 @@ export default function setupRoutes(app) {
       const html = response.data;
       const $ = cheerio.load(html);
 
-      const result = [];
+      let result = [];
       let stopProcessing = false;
 
       $('.user-time tbody tr').each((index, element) => {
-
         if (index === 0 || index === 1) return;
         if (stopProcessing) return;
 
@@ -165,6 +164,9 @@ export default function setupRoutes(app) {
 
         result.push({ id, taskName, time, plannedTime });
       });
+
+      
+      result = result.filter(task => task.id !== "Всего");
 
       res.json(result);
     } catch (error) {
@@ -195,13 +197,11 @@ export default function setupRoutes(app) {
         const time = $(element).find('th').eq(2).text().trim();
         const plannedTime = $(element).find('th').eq(3).text().trim();
 
-        // Если встречаем строку "Проектные часы", начинаем обработку проектных часов
         if (id === "Проектные часы" && !taskName && !time && !plannedTime) {
           isProjectHoursSection = true;
           return;
         }
 
-        // Пропускаем строки, которые не должны отображаться
         if (id === "ID" && taskName === "Название задачи" && time === "Время" && plannedTime === "Плановое время") {
           return;
         }
@@ -210,9 +210,12 @@ export default function setupRoutes(app) {
           return;
         }
 
-        // Если уже находимся в секции проектных часов, добавляем строки
         if (isProjectHoursSection) {
-          result.push({ id, taskName, time, plannedTime });
+          if (id && !taskName && !time && !plannedTime) {
+            result.push({ id: 'ProjectName', taskName: id, time, plannedTime });
+          } else {
+            result.push({ id, taskName, time, plannedTime });
+          }
         }
       });
 
@@ -222,8 +225,5 @@ export default function setupRoutes(app) {
       res.status(500).json({ error: 'Failed to fetch data' });
     }
   });
-
-
-
 
 }
