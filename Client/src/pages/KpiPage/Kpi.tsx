@@ -151,8 +151,8 @@ const Kpi = () => {
             { header: 'Описание', key: 'description', width: 30 },
             { header: 'Значение', key: 'value', width: 15 }
         ];
-        totalSheet.addRow({ description: 'Общее время консультаций:', value: { formula: `'Consultation Tasks'!C${processedConsultationTasks.length + 3}` } });
-        totalSheet.addRow({ description: 'Общее время проектных часов:', value: { formula: `'Project Tasks'!C${processedProjectTasks.length + 3}` } });
+        totalSheet.addRow({ description: 'Общее время консультаций:', value: { formula: `'Таблица консультаций'!C${processedConsultationTasks.length + 3}` } });
+        totalSheet.addRow({ description: 'Общее время проектных часов:', value: { formula: `'Таблица проектов'!C${processedProjectTasks.length + 3}` } });
         totalSheet.addRow({ description: 'Общее время:', value: { formula: `B2+B3` } });
         totalSheet.addRow({ description: 'Сумма оклада:', value: parseFloat(salary) || 0 });
         totalSheet.addRow({ description: 'Общая сумма:', value: { formula: `ROUND((B2 * ${hourlyRate} + B3 * ${projectHourlyRate}) + B5, 0)` } });
